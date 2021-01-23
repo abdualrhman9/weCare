@@ -1,5 +1,5 @@
 <?php
-
+exit(var_dump(__DIR__."/../"));
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
