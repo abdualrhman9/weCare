@@ -1,5 +1,4 @@
 <?php
-exit(var_dump(dirname(__DIR__, 1)));
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
