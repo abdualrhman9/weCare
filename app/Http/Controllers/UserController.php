@@ -27,7 +27,7 @@ class UserController extends Controller
         
         $token = $user->createToken($data['device_name']);
         
-        return response()->json(['user'=>$user,$data['device_name']=>$token]);
+        return response()->json([$user,$data['device_name']=>$token]);
     }
 
     public function login(Request $request){
@@ -39,12 +39,12 @@ class UserController extends Controller
 
         if(!Auth::attempt($data)){
             
-            return response()->json(['message'=>"Credintals Dosnot Match Our Records"]);
+            return response()->json(["Credintals Dosnot Match Our Records"]);
         }
 
         $token =Auth::user()->createToken($data['device_name'])->plainTextToken;
 
-        return response()->json(['user'=>auth()->user(),$data['device_name']=>$token]);
+        return response()->json([auth()->user(),$data['device_name']=>$token]);
 
     }
 
