@@ -17,11 +17,11 @@ class SectionController extends Controller
         $sections = Section::all();
         $sections->load("skills");
         // dd($sections);
-        return response()->json([$sections]);
+        return response()->json($sections);
     }
 
     public function show(Section $section){
         $section->load("skills");
-        return response()->json([$section]);
+        return response()->json($section);
     }
 }
