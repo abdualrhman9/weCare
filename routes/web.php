@@ -36,3 +36,7 @@ Route::post("skills",[SkillController::class,'store'])->name("skill.store")->mid
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

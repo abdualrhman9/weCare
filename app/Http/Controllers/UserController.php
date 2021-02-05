@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        // $this->middleware("auth:sanctum");
-    }
+    
     public function register(Request $request){
         $data = $request->validate([
             'name'=>'required',
@@ -20,7 +17,14 @@ class UserController extends Controller
             'password'=>'required|confirmed',
             "device_name"=>'required'
         ]);
-
+        
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|confirmed',
+            "device_name"=>'required'
+        ]);
+        
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
