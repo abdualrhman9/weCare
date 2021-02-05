@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c59ee5369adf7d80a43990064ff9e17b",
+    "content-hash": "6366383315859d4d438709c6ad71aa4f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1191,6 +1191,64 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.6.0"
             },
             "time": "2021-01-26T20:35:18+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/a1f82c6283c8373ea1958b8a27c3d5c98cade351",
+                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.0",
+                "illuminate/filesystem": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/ui/issues",
+                "source": "https://github.com/laravel/ui/tree/v3.2.0"
+            },
+            "time": "2021-01-06T19:20:22+00:00"
         },
         {
             "name": "league/commonmark",
@@ -5065,16 +5123,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.10",
+            "version": "2.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "98154e8b991fb616304c213cd405299ffedc26f5"
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/98154e8b991fb616304c213cd405299ffedc26f5",
-                "reference": "98154e8b991fb616304c213cd405299ffedc26f5",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e91d67353054bf827c64687fcac5ea44e4dcec54",
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54",
                 "shasum": ""
             },
             "require": {
@@ -5138,7 +5196,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-02-02T10:15:48+00:00"
+            "time": "2021-02-05T12:52:11+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -5425,64 +5483,6 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2021-01-26T19:38:10+00:00"
-        },
-        {
-            "name": "laravel/ui",
-            "version": "v3.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/ui.git",
-                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/a1f82c6283c8373ea1958b8a27c3d5c98cade351",
-                "reference": "a1f82c6283c8373ea1958b8a27c3d5c98cade351",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^8.0",
-                "illuminate/filesystem": "^8.0",
-                "illuminate/support": "^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Ui\\UiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Ui\\": "src/",
-                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel UI utilities and presets.",
-            "keywords": [
-                "laravel",
-                "ui"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/ui/issues",
-                "source": "https://github.com/laravel/ui/tree/v3.2.0"
-            },
-            "time": "2021-01-06T19:20:22+00:00"
         },
         {
             "name": "mockery/mockery",
