@@ -40,3 +40,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get("makefolder",function(){
+    $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
+    $linkFolder   = $_SERVER['DOCUMENT_ROOT'].'/public/storage';
+    symlink($targetFolder,$linkFolder);
+    return "success";
+});
