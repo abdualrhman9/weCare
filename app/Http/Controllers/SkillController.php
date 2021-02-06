@@ -23,6 +23,14 @@ class SkillController extends Controller
         return view('skill.index',compact('skills'));
     }
 
+
+    /**
+     * 
+     */
+    public function show(Skill $skill){
+        return response()->json($skill);
+    }
+
     /**
      *  main skills for api user
      * @var Request
