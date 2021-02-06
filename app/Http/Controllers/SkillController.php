@@ -10,10 +10,29 @@ use Illuminate\Http\Request;
 class SkillController extends Controller
 {
 
+    
+
+    /**
+     * 
+     * main skills for root user
+     * 
+     */
+
+     public function home(Request $request){
+        $skills = Skill::all();
+        return view('skill.index',compact('skills'));
+    }
+
+    /**
+     *  main skills for api user
+     * @var Request
+     * 
+     */
     public function index(Request $request){
         $skills = Skill::all();
         return response()->json(['skills'=>$skills]);
     }
+
 
     public function create(Request $request){
 
@@ -34,10 +53,9 @@ class SkillController extends Controller
         
         $image_name = Carbon::now()->format('h_m_s'). $data['image']->getClientOriginalName();
 
-        $data['image'] = $request->image->storeAs("public/uploads",$image_name);
-
+        $data['image'] = $request->image->storeAs("public/skills_img/",$image_name);
+        $data['image'] = $image_name;
         $skill = Skill::create($data);
-
-        return redirect("skill");
+        return redirect()->back();
     }
 }

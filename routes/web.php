@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExerciesController;
 use App\Http\Controllers\SkillController;
+use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,11 +28,15 @@ Route::get("exercies/create",[ExerciesController::class,'create']);
 
 
 Auth::routes();
-
+Route::get("truncate",function(){
+    Skill::truncate();
+    return "ok";
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("skills",[SkillController::class,'create'])->name("skill.create")->middleware("auth");
+Route::get("skills/create",[SkillController::class,'create'])->name("skill.create")->middleware("auth");
 Route::post("skills",[SkillController::class,'store'])->name("skill.store")->middleware("auth");
+Route::get("skills",[SkillController::class,'home'])->name("skill.index")->middleware("auth");
 
 Auth::routes();
 

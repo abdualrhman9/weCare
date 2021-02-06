@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <legend> Add New Skill </legend>
-                <form action="skills" method="post" enctype="multipart/form-data">
+                <form action="{{route('skill.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
