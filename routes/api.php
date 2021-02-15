@@ -23,11 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('skills',[SkillController::class,'index']);
 
-Route::get('skills/{skil}',[SkillController::class,'show']);
+Route::get('skills/{skill}',[SkillController::class,'show']);
 
 Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
 Route::post('logout',[UserController::class,'logout'])->middleware("auth:sanctum");
 
-Route::get("sections",[SectionController::class,'index']);
-Route::get("sections/{section}",[SectionController::class,'show']);
+Route::get("sections",[SectionController::class,'index'])->middleware("auth:sanctum");
+Route::get("sections/{section}",[SectionController::class,'show'])->middleware("auth:sanctum");

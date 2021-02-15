@@ -27,7 +27,7 @@ class SkillController extends Controller
     /**
      * 
      */
-    public function show(Skill $skill){
+    public function show(Request $request,Skill $skill){
         return response()->json($skill);
     }
 

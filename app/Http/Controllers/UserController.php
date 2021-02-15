@@ -18,37 +18,36 @@ class UserController extends Controller
             "device_name"=>'required'
         ]);
         
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|confirmed',
-            "device_name"=>'required'
-        ]);
-        
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
         
+        $user->roles()->create();
+
         $token = $user->createToken($data['device_name']);
         
-        return response()->json($user,$token);
+        return response()->json([$user,$token]);
     }
 
     public function login(Request $request){
+        
         $data = $request->validate([
             'email'=>'required|email',
             'password'=>'required',
             'device_name'=>'required'
         ]);
 
-        if(!Auth::attempt($data)){
+        $credintals = ['email' =>$data['email'],'password'=>$data['password']];
+        
+        if(Auth::attempt($credintals)){
+
+            $token =Auth::user()->createToken($data['device_name'])->plainTextToken;
+
+            return response()->json([auth()->user(),$token]);
             
-            return response()->json("Credintals Dosnot Match Our Records");
         }
-
-        $token =Auth::user()->createToken($data['device_name'])->plainTextToken;
-
-        return response()->json(auth()->user(),$token);
+        return response()->json("Credintals Dosnot Match Our Records");
+        
 
     }
 
