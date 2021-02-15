@@ -45,7 +45,7 @@ class UserController extends Controller
 
             $token =Auth::user()->createToken($data['device_name'])->plainTextToken;
 
-            return response()->json([auth()->user(),$token]);
+            return response()->json(["user"=>auth()->user(),"token"=>$token]);
             
         }
         return response()->json("Credintals Dosnot Match Our Records");
