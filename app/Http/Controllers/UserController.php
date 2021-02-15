@@ -22,7 +22,7 @@ class UserController extends Controller
 
         $user = User::create($data);
         
-        $user->roles()->create();
+        $user->roles()->attch(2);
 
         $token = $user->createToken($data['device_name']);
         
