@@ -53,7 +53,7 @@ class SkillController extends Controller
         $this->authorize('create',Skill::class);
         $data = $request->validate([
             'name'=>'required',
-            'image'=>'file',
+            'image'=>'required|image',
             'steps'=>'required',
             "section_id"=>'required'
 
