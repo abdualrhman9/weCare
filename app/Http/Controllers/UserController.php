@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $token = $user->createToken($data['device_name'],['result:send']);
         
-        return response()->json([$user,$token]);
+        return response()->json(["user"=>$user,"token"=>$token]);
     }
 
     public function login(Request $request){
