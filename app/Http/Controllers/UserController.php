@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    
+    // wuhdsfhj.com/api
+    // users = {id,name..... }
+    // roles = {}
     public function register(Request $request){
         $data = $request->validate([
             'name'=>'required',

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// we-hope.herokuapp.com/api/sections/1
 Route::get('skills',[SkillController::class,'index']);
 
 Route::get('skills/{skill}',[SkillController::class,'show']);
