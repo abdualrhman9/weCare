@@ -24,7 +24,7 @@ class UserController extends Controller
         
         $user->roles()->attach(2);
 
-        $token = $user->createToken($data['device_name']);
+        $token = $user->createToken($data['device_name'],['result:send']);
         
         return response()->json([$user,$token]);
     }
