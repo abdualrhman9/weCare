@@ -6568,3 +6568,12 @@ Did you mean this?
 #45 I:\\laravel\\we-crae\\weCare\\server.php(21): require_once('I:\\\\laravel\\\\we-c...')
 #46 {main}
 "} 
+[2021-02-17 08:18:58] local.ERROR: Command "serev" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"serev\" is not defined. at I:\\laravel\\we-crae\\weCare\\vendor\\symfony\\console\\Application.php:675)
+[stacktrace]
+#0 I:\\laravel\\we-crae\\weCare\\vendor\\symfony\\console\\Application.php(254): Symfony\\Component\\Console\\Application->find('serev')
+#1 I:\\laravel\\we-crae\\weCare\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 I:\\laravel\\we-crae\\weCare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 I:\\laravel\\we-crae\\weCare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 I:\\laravel\\we-crae\\weCare\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
