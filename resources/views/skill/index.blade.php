@@ -4,26 +4,27 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header text-center h4">
-                        Skills List
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            @forelse($skills as $skill)
-                                <li>
-                                    <a href="nav-link">
-                                        <h2>{{$skill->name}}</h2>
-                                        <img src="{{asset('storage/skills_img/'.$skill->image)}}" alt="avatar" width="20%" height="20%" srcset="">
-                                    </a>
-                                </li>
-                                @empty
-                                <li> No Skills At The Moment :  <a href="{{route('home')}}">return</a></li>
-                                
-                            @endforelse
-                        </ul>
-                    </div>
+                <div class="row">
+                    @forelse($skills as $skill)
+                        
+                            <div class="col-md-5 mt-4">
+                            
+                                <div class="card text-center">
+                                <div class="card-header">
+                                    <p class="h2">{{$skill->name}}</p>     
+                                </div>
+                                <div class="card-body">
+                                    <img src="{{asset('storage/skills_img/'.$skill->image)}}" alt="avatar" style="height:100px" srcset="" >
+                                </div>
+                                </div>
+                            
+                            </div>
+                        @empty
+                        <p>No Skills</p>
+                    @endforelse
                 </div>
+
+                
             </div>
         </div>
     </div>

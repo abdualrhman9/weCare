@@ -4,26 +4,27 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header text-center h4">
-                        Skills List
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <?php $__empty_1 = true; $__currentLoopData = $skills; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <li>
-                                    <a href="nav-link">
-                                        <h2><?php echo e($skill->name); ?></h2>
-                                        <img src="<?php echo e(asset('storage/skills_img/'.$skill->image)); ?>" alt="avatar" width="20%" height="20%" srcset="">
-                                    </a>
-                                </li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                <li> No Skills At The Moment :  <a href="<?php echo e(route('home')); ?>">return</a></li>
-                                
-                            <?php endif; ?>
-                        </ul>
-                    </div>
+                <div class="row">
+                    <?php $__empty_1 = true; $__currentLoopData = $skills; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                        
+                            <div class="col-md-5 mt-4">
+                            
+                                <div class="card text-center">
+                                <div class="card-header">
+                                    <p class="h2"><?php echo e($skill->name); ?></p>     
+                                </div>
+                                <div class="card-body">
+                                    <img src="<?php echo e(asset('storage/skills_img/'.$skill->image)); ?>" alt="avatar" style="height:100px" srcset="" >
+                                </div>
+                                </div>
+                            
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <p>No Skills</p>
+                    <?php endif; ?>
                 </div>
+
+                
             </div>
         </div>
     </div>
