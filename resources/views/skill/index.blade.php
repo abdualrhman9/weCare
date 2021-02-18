@@ -24,7 +24,9 @@
                     @endforelse
                 </div>
 
-                
+                <div class="">
+                    {{ $skills->links() }}
+                </div>
             </div>
         </div>
     </div>

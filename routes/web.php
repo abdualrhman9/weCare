@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExerciesController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\UserController;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get("skills/create",[SkillController::class,'create'])->name("skill.create")->middleware("auth");
 Route::post("skills",[SkillController::class,'store'])->name("skill.store")->middleware("auth");
 Route::get("skills",[SkillController::class,'home'])->name("skill.index")->middleware("auth");
+
+Route::get("doctors/create",[UserController::class,"doctor_create"])->name("doctor.create");
+Route::post("doctors",[UserController::class,"doctor_store"])->name("doctor.store");
+Route::get("doctors",[UserController::class,"doctors"])->name("doctor.index");
 
 Auth::routes();
 

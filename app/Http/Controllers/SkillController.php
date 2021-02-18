@@ -19,7 +19,7 @@ class SkillController extends Controller
      */
 
      public function home(Request $request){
-        $skills = Skill::all();
+        $skills = Skill::simplepaginate(10);
         return view('skill.index',compact('skills'));
     }
 
@@ -30,6 +30,7 @@ class SkillController extends Controller
     public function show(Request $request,Skill $skill){
         return response()->json($skill);
     }
+
 
     /**
      *  main skills for api user

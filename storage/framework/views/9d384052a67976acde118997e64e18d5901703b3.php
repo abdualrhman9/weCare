@@ -24,7 +24,10 @@
                     <?php endif; ?>
                 </div>
 
-                
+                <div class="">
+                    <?php echo e($skills->links()); ?>
+
+                </div>
             </div>
         </div>
     </div>
