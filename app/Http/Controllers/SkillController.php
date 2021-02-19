@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use App\Models\Section;
 use App\Models\Skill;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -66,5 +68,13 @@ class SkillController extends Controller
         $data['image'] = $image_name;
         $skill = Skill::create($data);
         return redirect()->back();
+    }
+
+    public function send(Request $request,Skill $skill,User $user){
+        dd($user->reports()->create(
+            [
+                'resulte'=>$request->resulte,
+                'skill_id'=> $skill->id,
+            ]));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ExerciesController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
@@ -39,9 +40,9 @@ Route::get("skills/create",[SkillController::class,'create'])->name("skill.creat
 Route::post("skills",[SkillController::class,'store'])->name("skill.store")->middleware("auth");
 Route::get("skills",[SkillController::class,'home'])->name("skill.index")->middleware("auth");
 
-Route::get("doctors/create",[UserController::class,"doctor_create"])->name("doctor.create");
-Route::post("doctors",[UserController::class,"doctor_store"])->name("doctor.store");
-Route::get("doctors",[UserController::class,"doctors"])->name("doctor.index");
+Route::get("doctors/create",[DoctorController::class,"create"])->name("doctor.create")->middleware("auth");
+Route::post("doctors",[DoctorController::class,"store"])->name("doctor.store")->middleware("auth");
+Route::get("doctors",[DoctorController::class,"doctors"])->name("doctor.index")->middleware("auth");
 
 Auth::routes();
 
@@ -58,3 +59,6 @@ Route::get("makefolder",function(){
     echo 'Symlink process successfully completed';
     
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -62,6 +62,49 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="work_location" class="col-md-4 col-form-label text-md-right">{{ __('Work Location') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="work_location" type="text" class="form-control @error('work_location') is-invalid @enderror" name="work_location" required autocomplete="new-work_location">
+
+                                @error('work_location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="specialization" class="col-md-4 col-form-label text-md-right">{{ __('Specialization') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="specialization" type="text" class="form-control @error('specialization') is-invalid @enderror" name="specialization" required autocomplete="new-specialization">
+
+                                @error('specialization')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" required autocomplete="new-phone_number">
+
+                                @error('phone_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="token" class="col-md-4 col-form-label text-md-right">Auto Give Token</label>
                             <div class="col-md-6">
                                 <input type="checkbox" name="accessToken" id="token">

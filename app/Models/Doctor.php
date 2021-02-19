@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Doctor extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
@@ -18,10 +18,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $guard = 'doctor';
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'phone_number', 'work_location', 'specialization'
     ];
 
     /**
@@ -43,24 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles(){
-        return $this->belongsToMany(Role::class);
+    public function users(){
+        return $this->belongsToMany(User::class);
     }
-
     
-    public function doctors(){
-        return $this->belongsToMany(Doctor::class);
-    }
-
-    public function reports(){
-        return $this->hasMany(Report::class);
-    }
-
-    public function hasRole($role){
-        if($role === Auth::user()->roles->first()->role){
-            return true;
-        }
-    }
-
-
 }

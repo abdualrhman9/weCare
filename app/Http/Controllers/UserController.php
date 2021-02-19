@@ -9,38 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
-
-    public function doctors(){
-        $doctor_role = Role::find(1);
-        $doctors = $doctor_role->users;
-        return response()->json([$doctors]);
-    }
-
-    public function doctor_create(Request $request){
-        return view('doctor.create');
-    }
-
-    public function doctor_store(Request $request){
-        $data = $request->validate([
-            'name' => 'required',
-            'email'=> 'required|email|unique:users',
-            'password'=>'required|string|min:8|confirmed'
-        ]);
-
-        $doctor=User::create($data);
-
-        $doctor->roles()->attach(2);
-
-        if($request->has('accessToken')){
-            $token = $doctor->createToken("adminCreator",['result:read']);
-            return back()->with("token",$token->plainTextToken);
-        }
-
-        return redirect()->back();
-    }
-
-    public function patients(){
+    public function index(){
         $patient_role = Role::find(2);
         $patients = $patient_role->users;
         return response()->json([$patients]);

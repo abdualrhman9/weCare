@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
@@ -32,6 +33,9 @@ Route::post('logout',[UserController::class,'logout'])->middleware("auth:sanctum
 Route::get("sections",[SectionController::class,'index'])->middleware("auth:sanctum");
 Route::get("sections/{section}",[SectionController::class,'show'])->middleware("auth:sanctum");
 
-Route::get("doctors",[UserController::class,'doctors']);
-Route::get("patients",[UserController::class,'patients']);
+Route::get("doctors",[DoctorController::class,'index'])->middleware("auth:sanctum");
+Route::post("doctors",[DoctorController::class,'login']);
+Route::get("patients",[UserController::class,'index'])->middleware("auth:sanctum");
+
+Route::get("reports/{skill}/{user}/",[SkillController::class,'send']);
 // Route::get("doctors/{user}");
