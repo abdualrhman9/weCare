@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class UserController extends Controller
     }
 
 
-    public function link(Request $request,User $user){
+    public function link(Request $request,Doctor $user){
         $user = Auth::user();
         if($user->doctors()->attach($user->id)){
             return response()->json(['message'=>'success']);
@@ -25,9 +26,9 @@ class UserController extends Controller
         return response()->json(['message'=>'fail']);
     }
 
-    public function checklink(Request $request,User $user){
-        $user = Auth::user();
-        if($user->doctors->first){
+    public function checklink(Request $request,Doctor $doctor){
+        $doctor = Auth::user();
+        if($doctor->doctors->first){
             return response()->json(['message'=>"this patien has adoctor attached to","status"=>true]);
         }else{
             return response()->json(["message"=>'No Doctor hasbeen attached to patient',"status"=>false]);
