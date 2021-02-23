@@ -18,12 +18,9 @@ class UserController extends Controller
 
 
     public function link(Request $request,Doctor $doctor){
-        $doctor = Auth::user();
-        if($doctor->doctors()->attach($doctor->id)){
-            return response()->json(['message'=>'success']);
-        }
-
-        return response()->json(['message'=>'fail']);
+        $user = Auth::user();
+        $user->doctors()->attach($doctor->id);
+        return response()->json(['user'=>$user->doctors]);
     }
 
     public function checklink(Request $request,Doctor $doctor){
