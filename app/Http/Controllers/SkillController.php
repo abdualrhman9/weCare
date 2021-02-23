@@ -8,6 +8,7 @@ use App\Models\Skill;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SkillController extends Controller
 {
@@ -70,11 +71,17 @@ class SkillController extends Controller
         return redirect()->back();
     }
 
-    public function send(Request $request,Skill $skill,User $user){
-        dd($user->reports()->create(
+    public function send(Request $request,Skill $skill){
+        $user = Auth::user();
+        $report = $user->reports()->create(
             [
                 'resulte'=>$request->resulte,
                 'skill_id'=> $skill->id,
-            ]));
+        ]);
+
+
+        return $report;
+
+
     }
 }
