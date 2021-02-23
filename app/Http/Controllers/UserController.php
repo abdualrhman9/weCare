@@ -24,8 +24,8 @@ class UserController extends Controller
     }
 
     public function checklink(Request $request,Doctor $doctor){
-        $doctor = Auth::user();
-        if($doctor->doctors->first){
+        $user = Auth::user();
+        if($user->doctors->first){
             return response()->json(['message'=>"this patien has adoctor attached to","status"=>true]);
         }else{
             return response()->json(["message"=>'No Doctor hasbeen attached to patient',"status"=>false]);
