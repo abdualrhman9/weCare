@@ -139,6 +139,11 @@ class DoctorController extends Controller
         //
     }
 
+    public function dashbord(){
+        $doctor = Auth::guard('doctor');
+        return response()->json(['patients'=>$doctor->users]);
+    }
+
     protected function guard(){
         return Auth::guard('doctor');
     }

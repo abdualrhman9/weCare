@@ -16,6 +16,23 @@ class UserController extends Controller
     }
 
 
+    public function link(Request $request,User $user){
+        $user = Auth::user();
+        if($user->doctors()->attach($user->id)){
+            return response()->json(['message'=>'success']);
+        }
+
+        return response()->json(['message'=>'fail']);
+    }
+
+    public function checklink(Request $request,User $user){
+        $user = Auth::user();
+        if($user->doctors->first){
+            return response()->json(['message'=>"this patien has adoctor attached to","status"=>true]);
+        }else{
+            return response()->json(["message"=>'No Doctor hasbeen attached to patient',"status"=>false]);
+        }
+    }
 
     public function register(Request $request){
         $data = $request->validate([
