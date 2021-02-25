@@ -80,7 +80,7 @@ class SkillController extends Controller
         ]);
 
 
-        return $report;
+        return response()->json(['message'=>'Success','report'=>$report]);
 
 
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
@@ -36,6 +37,8 @@ Route::get("sections/{section}",[SectionController::class,'show'])->middleware("
 Route::get("doctors",[DoctorController::class,'index'])->middleware("auth:sanctum");
 Route::post("doctors",[DoctorController::class,'login']);
 Route::post("doctors/dashbord",[DoctorController::class,'dashbord']);
+Route::get("doctors/patients",[DoctorController::class,'patients'])->middleware("auth:sanctum");
+Route::post("doctors/replies/{report}",[ReplyController::class,'store'])->middleware("auth:sanctum");
 Route::get("patients",[UserController::class,'index'])->middleware("auth:sanctum");
 Route::post('link-doctor/{doctor}',[UserController::class,'link'])->middleware("auth:sanctum");
 Route::post('check-link/{doctor}',[UserController::class,'checklink'])->middleware("auth:sanctum");
