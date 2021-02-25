@@ -142,7 +142,9 @@ class DoctorController extends Controller
     }
 
     public function patients(){
-        $doctor = Auth::guard('doctor');
+        $doctor = Auth::user()();
+        
+
         $patients = $doctor->users;
         return response()->json(['patients'=>$patients]);
     }
