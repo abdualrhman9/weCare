@@ -38,6 +38,7 @@ Route::get("doctors",[DoctorController::class,'index'])->middleware("auth:sanctu
 Route::post("doctors",[DoctorController::class,'login']);
 Route::post("doctors/dashbord",[DoctorController::class,'dashbord']);
 Route::get("doctors/patients",[DoctorController::class,'patients'])->middleware("auth:sanctum");
+Route::get("doctors/patients/{user}",[DoctorController::class,'patient_show'])->middleware("auth:sanctum");
 Route::post("doctors/replies/{report}",[ReplyController::class,'store'])->middleware("auth:sanctum");
 Route::get("patients",[UserController::class,'index'])->middleware("auth:sanctum");
 Route::post('link-doctor/{doctor}',[UserController::class,'link'])->middleware("auth:sanctum");

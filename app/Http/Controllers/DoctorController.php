@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,7 @@ class DoctorController extends Controller
         return response()->json([$doctors]);
     }
 
+    
 
     public function doctors(){
         $doctors = Doctor::all();
@@ -144,6 +146,10 @@ class DoctorController extends Controller
         $patients = $doctor->users;
         $patients->load('reports');
         return response()->json(['patients'=>$patients]);
+    }
+
+    public function patient_show(User $user){
+        return response()->json(['reports'=>$user->reports]);
     }
 
     public function dashbord(){
