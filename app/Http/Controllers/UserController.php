@@ -20,7 +20,7 @@ class UserController extends Controller
     public function link(Request $request,Doctor $doctor){
         $user = Auth::user();
         $user->doctors()->attach($doctor->id);
-        return response()->json(['doctor'=>$user->doctors->first()]);
+        return response()->json(['doctor'=>$user->doctors->first(),'user'=>$user]);
     }
 
     public function checklink(Request $request,Doctor $doctor){

@@ -75,7 +75,7 @@ class SkillController extends Controller
         $user = Auth::user();
         $report = $user->reports()->create(
             [
-                'report'=>$request->resulte,
+                'resulte'=>$request->resulte,
                 'skill_id'=> $skill->id,
         ]);
 
