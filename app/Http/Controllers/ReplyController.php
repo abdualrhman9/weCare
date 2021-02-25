@@ -40,6 +40,7 @@ class ReplyController extends Controller
         $data = $request->validate(['message'=>'required']);
         $doctor = Auth::guard('doctor');
         $doctor->replies()->create(['report_id',$report->id,'message'=>$data['message']]);
+        return response()->json();
     }
 
     /**
