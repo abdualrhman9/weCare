@@ -14,9 +14,9 @@ class ReplyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Report $report)
     {
-        //
+        return response()->json(['replies' =>$report->replies]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ReplyController extends Controller
      */
     public function show(Reply $reply)
     {
-        //
+        
     }
 
     /**
