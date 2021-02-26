@@ -45,4 +45,5 @@ Route::get("patients",[UserController::class,'index'])->middleware("auth:sanctum
 Route::post('link-doctor/{doctor}',[UserController::class,'link'])->middleware("auth:sanctum");
 Route::post('check-link/{doctor}',[UserController::class,'checklink'])->middleware("auth:sanctum");
 Route::post("reports/{skill}",[SkillController::class,'send'])->middleware("auth:sanctum");
+Route::get('get-file',[UserController::class,'getDownload']);
 // Route::get("doctors/{user}");

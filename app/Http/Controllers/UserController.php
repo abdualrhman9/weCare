@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Models\Role;
 use App\Models\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,6 +72,19 @@ class UserController extends Controller
         return response()->json("Credintals Dosnot Match Our Records");
         
 
+    }
+
+    public function getDownload()
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/download/steps.docx";
+
+        $headers = array(
+                'Content-Type: application/pdf',
+                );
+
+        // return Response::download($file, 'filename.pdf', $headers);
+        return response()->download($file,'steps.docx',$headers);
     }
 
     public function logout(Request $request){
