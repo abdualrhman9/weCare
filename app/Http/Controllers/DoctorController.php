@@ -142,7 +142,7 @@ class DoctorController extends Controller
     }
 
     public function patients(){
-        $doctor = Auth::user()();
+        $doctor = Auth::user();
         
 
         $patients = $doctor->users;
@@ -150,7 +150,8 @@ class DoctorController extends Controller
     }
 
     public function patient_show(User $user){
-        return response()->json(['reports'=>$user->reports]);
+        $reports = $user->reports;
+        return response()->json(['reports'=>$reports]);
     }
 
     public function dashbord(){
