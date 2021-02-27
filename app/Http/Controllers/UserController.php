@@ -77,14 +77,14 @@ class UserController extends Controller
     public function getDownload()
     {
         //PDF file is stored under project/public/download/info.pdf
-        $file= public_path(). "/download/steps.docx";
+        $file= public_path(). "/download/steps.pdf";
 
         $headers = array(
                 'Content-Type: application/pdf',
                 );
 
         // return Response::download($file, 'filename.pdf', $headers);
-        return response()->download($file,'steps.docx',$headers);
+        return response()->download($file,'steps.pdf',$headers);
     }
 
     public function logout(Request $request){

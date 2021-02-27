@@ -16,6 +16,7 @@ class ReplyController extends Controller
      */
     public function index(Report $report)
     {
+        $report->load('replies');   
         return response()->json(['replies' =>$report->replies]);
     }
 
@@ -39,8 +40,8 @@ class ReplyController extends Controller
     {
         $data = $request->validate(['message'=>'required']);
         $doctor = Auth::user();
-        $doctor->replies()->create(['report_id',$report->id,'message'=>$data['message']]);
-        return response()->json([]);
+        $reply = $doctor->replies()->create(['report_id',$report->id,'message'=>$data['message']]);
+        return response()->json(['message'=>'message has been sent to patient','status'=>true]);
     }
 
     /**
