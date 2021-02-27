@@ -36,11 +36,13 @@ class ReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Report $report)
+    public function store(Request $request, $report)
     {
+        
         $data = $request->validate(['message'=>'required']);
         $doctor = Auth::user();
-        $reply = $doctor->replies()->create(['report_id',$report->id,'message'=>$data['message']]);
+        // dd($report);
+        $reply = $doctor->replies()->create(['report_id'=>$report,'message'=>$data['message']]);
         return response()->json(['message'=>'message has been sent to patient','status'=>true]);
     }
 

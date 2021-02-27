@@ -151,7 +151,7 @@ class DoctorController extends Controller
 
     public function patient_show(User $user){
         $user->load('reports.replies');
-        return response()->json(['reports'=>$user]);
+        return response()->json(['userReport'=>$user]);
     }
 
     public function dashbord(){
