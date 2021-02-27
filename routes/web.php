@@ -5,6 +5,7 @@ use App\Http\Controllers\ExerciesController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
 use App\Models\Skill;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,3 +63,14 @@ Route::get("makefolder",function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('test_me',function(){
+   $user3 = User::find(3);
+   $user3->load('reports.replies');
+   foreach($user3->reports as $report){
+       dump($report->resulte);
+        foreach($report->replies as $reply){
+            dump($reply->message);
+        }
+   }
+   dd();
+});
