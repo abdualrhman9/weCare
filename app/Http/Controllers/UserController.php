@@ -6,8 +6,11 @@ use App\Models\Doctor;
 use App\Models\Role;
 use App\Models\User;
 use Facade\FlareClient\Http\Response;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response as FacadesResponse;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -84,7 +87,8 @@ class UserController extends Controller
                 );
 
         // return Response::download($file, 'filename.pdf', $headers);
-        return response()->download($file,'steps.pdf',$headers);
+        return FacadesResponse::file($file,$headers);
+        
     }
 
     public function logout(Request $request){
